@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "build": "NODE_ENV=production node app.js",
     "dev": "node server.js",
     "sandro": "echo stocazzo"
   }
