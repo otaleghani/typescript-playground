@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "scripts": {
+    "test": "npx tsc example.ts && node example.js && rm example.js"
+  }
+}
