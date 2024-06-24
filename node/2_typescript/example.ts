@@ -5,7 +5,7 @@
 // npx tsc example.ts
 // (npx = node package execute, allows you ro run programs without installing it
 
-type User = {
+type User2 = {
   name: string;
   age: number;
 };
