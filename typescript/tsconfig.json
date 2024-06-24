@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "lib": ["ES2018", "DOM"],
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strictNullChecks": true
+  },
+  "files": [
+    "1_intro.ts",
+    "2_types.ts",
+    "3_narrowing.ts",
+  ],
+}

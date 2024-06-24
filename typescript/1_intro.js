@@ -1,3 +1,4 @@
+"use strict";
 var helloWorld = "hello"; // definition
 var helloWorld2 = "hello"; // inference
 var user_1 = {
@@ -31,8 +32,8 @@ function getLength(data) {
 }
 console.log(getLength(1));
 console.log(getLength("sandro"));
-var object = backpack.value;
+var object = backpack.get();
 backpack.add(23);
-var object2 = backpack.value;
+var object2 = backpack.get();
 console.log(object);
 console.log(object2);
