@@ -13,5 +13,6 @@
     "1_intro.ts",
     "2_types.ts",
     "3_narrowing.ts",
+    "4_functions.ts",
   ],
 }
