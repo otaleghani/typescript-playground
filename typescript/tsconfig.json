@@ -15,5 +15,6 @@
     "3_narrowing.ts",
     "4_functions.ts",
     "5_objects.ts",
+    "6_manipulation.ts",
   ],
 }
