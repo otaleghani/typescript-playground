@@ -175,3 +175,81 @@ function setContent(box: { content: any }, newContent: any) {
 interface Box3<Type> {
   content: Type;
 }
+let box3: Box3<string> = { content: "anvedi oh" }
+// By using a generic we can easly assig a different type with no problems
+let box4: Box3<number> = { content: 2 }
+
+function changeContent<Type>(box: Box3<Type>, content: Type): void {
+  box.content = content;
+}
+// Here we created a generic function that takes in a generic and based
+// on that generic changes the content of the box
+// BY doing something like this we are basically removing the need for overload functions
+
+changeContent(box3, "salve!")
+changeContent(box4, 2)
+// TS can infere the type of changeContent based on the passed box.
+changeContent<string>(box3, "salve per la seconda volta!")
+// The type is infered using box, you can avoid adding the <string>
+
+// Another important generic is Array, which is basically like adding [] at the
+// end of a type
+
+function arrayFunction(array: Array<string>) {
+  array.forEach(element => {
+    console.log(element);
+  });
+}
+
+let myArray: string[] = ["helo", "world"];
+arrayFunction(myArray)
+// string[] is the shorthand of Array<string>
+// Arrays can also be generics
+
+// interface Array<Type> {
+//   lenght: number; 
+//   pop(): Type | undefined;
+//   push(...items: Type[]): number;
+// }
+
+// Other generics other than Array are Set, Map and Promise, cause they can have any kind of data inside
+
+// It also exists a readonly version of Array<Type> which is ReadonlyArray<Type>
+// You can call it with ReadonlyArray<Type> or with readonly Type[]
+
+// ReadonlyArrays cannot be constructed with New 
+// new ReadonlyArray("No", "can", do");
+
+// But this thing could be assigned to a new value
+// const roArray: ReadonlyArray<string> = ["yes", "can", "do"];
+
+// Tuples are basically arrays of known size and types
+type StringNumberPair = [string, number]
+const pair1: StringNumberPair = ["anvedi oh", 1]
+
+function printPair(pair: StringNumberPair) {
+  const [ stringPair, numberPair ] = pair;
+  // The deconstruction will assign the right type to the right index
+  console.log(stringPair, numberPair)
+}
+// tuples, beign like arrays, have the property of length
+interface TupleStructure {
+  length: 2;
+  0: string;
+  1: number;
+}
+// Tuple can also have optional types at the end, which will change the length property
+
+type OptionalTuple = [string, string, number?];
+const ot1: OptionalTuple = ["io ne ho", "solo due"]
+const ot2: OptionalTuple = ["io ne ho", "anche un terzo", 3]
+console.log(ot1.length)
+console.log(ot2.length)
+
+// this is a strange tuple thing. We can define things before and after an array
+type ArrayTuple1 = [string, number, ...boolean[]];
+type ArrayTuple2 = [string, ...boolean[], number];
+type ArrayTuple3 = [...boolean[], string, number];
+
+// There are also readonly tuples with readonly before the definition
+

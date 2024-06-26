@@ -43,10 +43,47 @@ console.log(asd["sandro"]);
 console.log(asd["alberto"]);
 console.log(asd.id);
 var box1 = {
-    content: 1,
+    content: "hello",
 };
 if (typeof box1.content === "string") {
     console.log(box1.content.toLowerCase());
 }
 // We could even use assertion, but this is not the best, is error prone
-console.log(box1.content.toLowerCase());
+console.log(box1.content.toLowerCase()); // This will be an error 
+function setContent(box, newContent) {
+    box.content = newContent;
+}
+var box3 = { content: "anvedi oh" };
+// By using a generic we can easly assig a different type with no problems
+var box4 = { content: 2 };
+function changeContent(box, content) {
+    box.content = content;
+}
+// Here we created a generic function that takes in a generic and based
+// on that generic changes the content of the box
+// BY doing something like this we are basically removing the need for overload functions
+changeContent(box3, "salve!");
+changeContent(box4, 2);
+// TS can infere the type of changeContent based on the passed box.
+changeContent(box3, "salve per la seconda volta!");
+// The type is infered using box, you can avoid adding the <string>
+// Another important generic is Array, which is basically like adding [] at the
+// end of a type
+function arrayFunction(array) {
+    array.forEach(function (element) {
+        console.log(element);
+    });
+}
+var myArray = ["helo", "world"];
+arrayFunction(myArray);
+var pair1 = ["anvedi oh", 1];
+function printPair(pair) {
+    var stringPair = pair[0], numberPair = pair[1];
+    // The deconstruction will assign the right type to the right index
+    console.log(stringPair, numberPair);
+}
+var ot1 = ["io ne ho", "solo due"];
+var ot2 = ["io ne ho", "anche un terzo", 3];
+console.log(ot1.length);
+console.log(ot2.length);
+// There are also readonly tuples with readonly before the definition
