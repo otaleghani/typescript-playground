@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="css/style.css" rel="stylesheet">
+    <script defer src="TodoItem.js"></script>
+    <script defer src="ExpandableList.js"></script>
+    <style>
+      h3 {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <select>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+    <ul is="expandable-list" data-expanded>
+      <todo-item checked>
+        helo
+        <span slot="description">helo helooooo</span>
+      </todo-item>
+    </ul>
+  </body>
+</html>
